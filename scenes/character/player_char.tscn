@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bb2i8tj3hengt"]
+[gd_scene load_steps=12 format=3 uid="uid://bb2i8tj3hengt"]
 
 [ext_resource type="Script" path="res://scenes/character/player_char.gd" id="1_veqej"]
 [ext_resource type="Texture2D" uid="uid://bvuw0k5t84pic" path="res://assets/Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png" id="2_2hosv"]
@@ -19,13 +19,45 @@ _data = {
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_3idhg"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq01b"]
+atlas = ExtResource("2_2hosv")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w5nf"]
+atlas = ExtResource("2_2hosv")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tc1ad"]
+atlas = ExtResource("2_2hosv")
+region = Rect2(128, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bcnb"]
+atlas = ExtResource("2_2hosv")
+region = Rect2(192, 0, 64, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kyop0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kq01b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6w5nf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tc1ad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bcnb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
+
 [node name="player char" type="CharacterBody2D"]
 script = ExtResource("1_veqej")
 SPEED = 200.0
-
-[node name="sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_2hosv")
-hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -42,3 +74,6 @@ tree_root = SubResource("AnimationNodeStateMachine_3idhg")
 [node name="Node" type="Node" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kyop0")
+animation = &"idle"
+frame_progress = 0.512504
