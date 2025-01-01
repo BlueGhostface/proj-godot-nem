@@ -303,7 +303,7 @@ SPEED = 200.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-32, -40)
 sprite_frames = SubResource("SpriteFrames_kyop0")
-animation = &"jump_loop"
+animation = &"run"
 autoplay = "idle"
 centered = false
 
